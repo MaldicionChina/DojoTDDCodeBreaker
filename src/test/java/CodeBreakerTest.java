@@ -10,26 +10,51 @@ public class CodeBreakerTest {
     @Test
     public void allAssert(){
         cb = new CodeBreaker();
-        result = cb.compare(1000,1000);
-        assertEquals("XXXX", result);
+        String pensado="1000";
+        String original="1000";
+        result = cb.compare(pensado,original);
+        assertEquals("X X X X", result);
 
     }
 
     @Test
     public void allFailed(){
         cb = new CodeBreaker();
-        result = cb.compare(2222,1000);
-        assertEquals("", result);
+        String pensado="2222";
+        String original="1000";
+        result = cb.compare(pensado,original);
+        assertEquals("       ", result);
 
     }
     @Test
-    public void oneAssert(){
+    public void firstAssert(){
         cb = new CodeBreaker();
-        result = cb.compare(1222,1000);
-        assertEquals("X", result);
+        String pensado="1222";
+        String original="1000";
+        result = cb.compare(pensado,original);
+        assertEquals("X      ", result);
 
     }
 
+    @Test
+    public void firstPresent(){
+        cb = new CodeBreaker();
+        String pensado="2212";
+        String original="1000";
+        result = cb.compare(pensado,original);
+        assertEquals("_      ", result);
+
+    }
+
+    @Test
+    public void allPresent(){
+        cb = new CodeBreaker();
+        String pensado="1234";
+        String original="4321";
+        result = cb.compare(pensado,original);
+        assertEquals("_ _ _ _", result);
+
+    }
 
 
 }
