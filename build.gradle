@@ -3,6 +3,21 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
+
+
+
+sourceSets{
+	main{
+		java{
+			srcDir 'src'
+		}
+}test{
+                java{
+                        srcDir 'test'
+                }
+
+        }
+}
 sourceCompatibility = 1.5
 
 repositories {
