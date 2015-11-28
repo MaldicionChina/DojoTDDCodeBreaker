@@ -2,30 +2,20 @@ group 'co.udea.tdd'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'jacoco'
 
-
-
-
-sourceSets{
-	main{
-		java{
-			srcDir 'src'
-		}
-}test{
-                java{
-                        srcDir 'test'
-                }
-
-        }
+test{
+	jacoco{
+		toolVersion = '0.7.1.201405082137'
+		destinationFile = file("../build/jacoco/jacoco.exec")
+		append = true
+	}
 }
+
 sourceCompatibility = 1.5
 
 repositories {
     mavenCentral()
-}
-
-repositories {
-	mavenCentral()
 }
 
 
